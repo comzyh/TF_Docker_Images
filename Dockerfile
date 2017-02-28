@@ -10,9 +10,9 @@ RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricte
     echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse" >> /etc/apt/sources.list
 
 RUN apt-get update
+RUN locale-gen en_US.UTF-8
 RUN apt-get install -y wget python3.5 python3-pip
 
 ADD tensorflow*.whl /tmp
 
 RUN python3.5 -m pip install --ignore-installed -i https://pypi.tuna.tsinghua.edu.cn/simple /tmp/tensorflow*.whl
-
